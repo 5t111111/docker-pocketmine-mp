@@ -6,16 +6,20 @@ RUN apt-get update && apt-get install -y \
         wget \
         perl gcc g++ make automake libtool autoconf m4 \
         gcc-multilib
-	
-WORKDIR /usr/local/pocketmine-mp
 
-RUN wget -q -O - http://cdn.pocketmine.net/installer.sh | bash -s - -v beta
+RUN adduser --gecos 'PocketMine-MP' --disabled-password --home /pocketmine pocketmine
 
-COPY assets/server.properties /server.properties.original
-COPY assets/entrypoint.sh /entrypoint.sh
+WORKDIR /pocketmine
+RUN mkdir /pocketmine/PocketMine-MP
 
-RUN chmod 755 /entrypoint.sh
+RUN cd PocketMine-MP && wget -q -O - http://cdn.pocketmine.net/installer.sh | bash -s - -v beta
+
+COPY assets/server.properties /pocketmine/server.properties.original
+COPY assets/entrypoint.sh /pocketmine/entrypoint.sh
+
+RUN chown -R pocketmine:pocketmine /pocketmine
+RUN chmod 755 /pocketmine/entrypoint.sh
 
 EXPOSE 19132/udp
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
