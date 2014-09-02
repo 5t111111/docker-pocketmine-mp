@@ -2,7 +2,7 @@ docker-pocketmine-mp
 ====================
 
 Docker image for a PocketMine-MP server.
-It includes the latest BETA version and NOT stable one because the latest stable version is not working for the latest Minecraft PE.
+Since it includes the latest stable version of PocketMine-MP that is not working with the latest Minecraft PE, you should update to the latest beta. Check "Update Beta" section.
 
 Quick Start
 --------------------
@@ -31,9 +31,19 @@ You can also edit `server.properties`.
 Update
 --------------------
 
-Set the environment variable `UPDATE_LATEST = YES` to force update the latest BETA release.
+Set the environment variable `UPDATE_LATEST = YES` to force update the latest stable release.
 
 ```
 docker run --name=pocketmine-mp -d -v /opt/pocketmine-mp:/usr/local/pocketmine-mp \
     -p 19132:19132/udp -e "UPDATE_LATEST=YES" 5t111111/pocketmine-mp:latest
+```
+
+Update Beta
+--------------------
+
+Set the environment variable `UPDATE_LATEST_BETA = YES` to force update the latest beta release.
+
+```
+docker run --name=pocketmine-mp -d -v /opt/pocketmine-mp:/usr/local/pocketmine-mp \
+    -p 19132:19132/udp -e "UPDATE_LATEST_BETA=YES" 5t111111/pocketmine-mp:latest
 ```
