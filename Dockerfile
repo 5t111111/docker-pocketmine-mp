@@ -12,7 +12,7 @@ RUN adduser --gecos 'PocketMine-MP' --disabled-password --home /pocketmine pocke
 WORKDIR /pocketmine
 RUN mkdir /pocketmine/PocketMine-MP
 
-RUN cd PocketMine-MP && wget -q -O - http://cdn.pocketmine.net/installer.sh | bash -s - -v beta
+RUN cd PocketMine-MP && wget -q -O - http://cdn.pocketmine.net/installer.sh | bash -s - -r -v beta
 
 COPY assets/server.properties /pocketmine/server.properties.original
 COPY assets/entrypoint.sh /pocketmine/entrypoint.sh
