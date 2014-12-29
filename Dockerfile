@@ -27,6 +27,7 @@ ENV GNUPGHOME /pocketmine
 RUN gpg --keyserver pgp.mit.edu --recv-key 2280B75B
 RUN cd PocketMine-MP && wget -q -O - http://cdn.pocketmine.net/installer.sh | bash -s - -v beta
 
+EXPOSE 19132
 EXPOSE 19132/udp
 
 ENTRYPOINT ["./entrypoint.sh"]
