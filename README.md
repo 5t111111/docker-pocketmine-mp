@@ -4,6 +4,8 @@ docker-pocketmine-mp
 Docker image for a PocketMine-MP server.
 Since it includes the latest stable version of PocketMine-MP that is not working with the latest Minecraft PE, you should update to the latest beta. Check "Update Beta" section.
 
+**For the moment, installing beta release instead of stable one by default.**
+
 Quick Start
 --------------------
 
