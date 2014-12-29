@@ -10,20 +10,21 @@ fi
 
 if ! [ -e PocketMine-MP.phar ]; then
     echo >&2 "[WARN] PocketMine-MP.phar is not found in $(pwd). Installing the latest stable release."
-    wget -q -O - http://cdn.pocketmine.net/installer.sh | bash -s - -r
+    wget -q -O - http://cdn.pocketmine.net/installer.sh | bash
     chown -R pocketmine:pocketmine /pocketmine
 fi
 
 if [ "$UPDATE_LATEST" = 'YES' ]; then
     echo "[INFO] Updating to the latest stable release."
-    wget -q -O - http://cdn.pocketmine.net/installer.sh | bash -s - -r -v Alpha_1.3.12
+    wget -q -O - http://cdn.pocketmine.net/installer.sh | bash -s - -v Alpha_1.3.12
     chown -R pocketmine:pocketmine /pocketmine
 fi
 
 if [ "$UPDATE_LATEST_BETA" = 'YES' ]; then
     echo "[INFO] Updating to the latest beta release."
-    wget -q -O - http://cdn.pocketmine.net/installer.sh | bash -s - -r -v beta
+    wget -q -O - http://cdn.pocketmine.net/installer.sh | bash -s - -v beta
     chown -R pocketmine:pocketmine /pocketmine
 fi
 
-su - pocketmine "/pocketmine/PocketMine-MP/start.sh"
+#su - pocketmine "/pocketmine/PocketMine-MP/start.sh"
+/pocketmine/PocketMine-MP/start.sh
