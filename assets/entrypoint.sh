@@ -26,5 +26,11 @@ if [ "$UPDATE_LATEST_BETA" = 'YES' ]; then
     chown -R pocketmine:pocketmine /pocketmine
 fi
 
+if [ "$UPDATE_LATEST_DEV" = 'YES' ]; then
+    echo "[INFO] Updating to the latest dev release."
+    wget -q -O - http://cdn.pocketmine.net/installer.sh | bash -s - -v development
+    chown -R pocketmine:pocketmine /pocketmine
+fi
+
 #su - pocketmine "/pocketmine/PocketMine-MP/start.sh"
 /pocketmine/PocketMine-MP/start.sh
