@@ -49,3 +49,14 @@ Set the environment variable `UPDATE_LATEST_BETA = YES` to force update the late
 docker run --name=pocketmine-mp -d -v /opt/pocketmine-mp:/usr/local/pocketmine-mp \
     -p 19132:19132/udp -e "UPDATE_LATEST_BETA=YES" 5t111111/pocketmine-mp:latest
 ```
+
+
+Update Dev
+--------------------
+
+Set the environment variable `UPDATE_LATEST_DEV = YES` to force update the latest development release.
+
+```
+docker run --name=pocketmine-mp -d -v /opt/pocketmine-mp:/usr/local/pocketmine-mp \
+    -p 19132:19132/udp -e "UPDATE_LATEST_DEV=YES" 5t111111/pocketmine-mp:latest
+```
