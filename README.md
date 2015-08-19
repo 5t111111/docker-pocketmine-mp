@@ -16,12 +16,15 @@ docker run --name=pocketmine-mp -d -p 19132:19132/udp 5t111111/pocketmine-mp:lat
 Data Persistence
 --------------------
 
-You might want to keep your data from losing.
-The easiest way is to create a direcory on host filesystem and mount it to `/pocketmine/PocketMine-MP` in a container.
+You might want to keep your data from losing. The easiest way is to create a direcory on host filesystem and mount it to `/pocketmine/PocketMine-MP` in a container.  
+
+For example, this instruction shows in case of you want to use host's `/opt/pocketmine-mp` directory for saving your data.
 
 ```
 mkdir /opt/pocketmine-mp
 ```
+
+Then run a container with `-v` option.
 
 ```
 docker run --name=pocketmine-mp -d -v /opt/pocketmine-mp:/pocketmine/PocketMine-MP \
