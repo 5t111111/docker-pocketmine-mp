@@ -25,6 +25,9 @@ USER pocketmine
 ENV GNUPGHOME /pocketmine
 
 RUN gpg --keyserver pgp.mit.edu --recv-key 2280B75B
+
+ENV PHP_BINARY /pocketmine/PocketMine-MP/bin/php5/bin/php
+
 RUN cd PocketMine-MP && wget -q -O - http://cdn.pocketmine.net/installer.sh | bash -s - -v beta
 
 EXPOSE 19132
